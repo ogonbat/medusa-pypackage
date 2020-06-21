@@ -73,7 +73,7 @@ servedocs: docs ## compile the docs watching for changes
 	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 release: dist ## package and upload a release
-	twine upload -u cingusoft -p Nw7a16bt@ dist/*
+	twine upload -u {{ cookiecutter.pypi_username }} -p {{ cookiecutter.pypi_password }} dist/*
 
 dist: clean ## builds source and wheel package
 	python setup.py sdist
